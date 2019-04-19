@@ -58,11 +58,10 @@ namespace TestApi.Controllers
             return NoContent();
         }
 
-
         // POST api/values
         [HttpPost]
         [Route("Post_Product")]
-        public async Task<IActionResult> Post_Product([FromBody]Product product)
+        public async Task<IActionResult> Post_Product(Product product)
         {
             if (!ModelState.IsValid)
             {
@@ -73,7 +72,6 @@ namespace TestApi.Controllers
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
             return NoContent();
-
         }
 
         // PUT api/values/5
