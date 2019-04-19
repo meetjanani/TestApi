@@ -10,5 +10,6 @@ namespace TestApi.Models
     {
         public int Id { get; set; }
         public Customer Customer { get; set; }
+        public int Rate { get; set; }
     }
 }

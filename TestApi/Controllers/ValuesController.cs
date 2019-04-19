@@ -27,6 +27,14 @@ namespace TestApi.Controllers
         {
             return Json(_context.Customers.Where(c => c.Id > 0));
         }
+        
+        // GET Products
+        [HttpGet]
+        [Route("Get_Product")]
+        public IActionResult Get_Product()
+        {
+            return Json(_context.Products.Where(p => p.Id > 0));
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -48,6 +56,24 @@ namespace TestApi.Controllers
             await _context.Customers.AddAsync(customer);
             _context.SaveChanges();
             return NoContent();
+        }
+
+
+        // POST api/values
+        [HttpPost]
+        [Route("Post_Product")]
+        public async Task<IActionResult> Post_Product(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(product);
+            }
+            // var pro = _context.Products.Where(c => c.Id == 1).Include(p => p.Customer);
+            // Task Paraller Library (TPL) with async / await
+            await _context.Products.AddAsync(product);
+            _context.SaveChanges();
+            return NoContent();
+
         }
 
         // PUT api/values/5

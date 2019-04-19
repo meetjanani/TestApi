@@ -24,10 +24,15 @@ namespace TestApi.Services
                 Age = 25
             }
         };
-
+        public List<Product> Products { get; set; } = new List<Product> { };
         public IEnumerable<Customer> Get()
         {
             return Customers;
+        }
+
+        public IEnumerable<Product> Get_Product()
+        {
+            return Products;
         }
 
         public Customer Get(int id)
