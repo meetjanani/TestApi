@@ -62,7 +62,7 @@ namespace TestApi.Controllers
         // POST api/values
         [HttpPost]
         [Route("Post_Product")]
-        public async Task<IActionResult> Post_Product(Product product)
+        public async Task<IActionResult> Post_Product([FromBody]Product product)
         {
             if (!ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace TestApi.Controllers
             // var pro = _context.Products.Where(c => c.Id == 1).Include(p => p.Customer);
             // Task Paraller Library (TPL) with async / await
             await _context.Products.AddAsync(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return NoContent();
 
         }
