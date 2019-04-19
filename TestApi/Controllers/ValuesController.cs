@@ -58,7 +58,6 @@ namespace TestApi.Controllers
             return NoContent();
         }
 
-
         // POST api/values
         [HttpPost]
         [Route("Post_Product")]
@@ -71,9 +70,8 @@ namespace TestApi.Controllers
             // var pro = _context.Products.Where(c => c.Id == 1).Include(p => p.Customer);
             // Task Paraller Library (TPL) with async / await
             await _context.Products.AddAsync(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return NoContent();
-
         }
 
         // PUT api/values/5

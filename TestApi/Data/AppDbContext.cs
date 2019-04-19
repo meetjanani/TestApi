@@ -12,7 +12,7 @@ namespace TestApi.Data
     {
         // Add-Migration Init
         // Update-Database
-        // dotnet ef migration add Init
+        // dotnet ef migrations add Init
         // dotnet ef database update
         public AppDbContext(DbContextOptions options) : base(options) { }
 
